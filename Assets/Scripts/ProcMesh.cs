@@ -27,7 +27,8 @@ public class ProcMesh : MonoBehaviour
 
     private void Update()
     {
-        MakeMeshData2();
+        //MakeMeshData2();
+        UpdateDynamicProcMeshIfFaceChange();
         CreateMesh();
     }
 
@@ -109,39 +110,39 @@ public class ProcMesh : MonoBehaviour
         int triangleCenterPointCounter = 0;
         int builtFaceCount = 0;
         //creating triangles
-        for (int i = 0; i < (numOfFaces * 3); i++)
+        for (int i = 0; i < numOfFaces; i++)
         {
-            if (i + 1 % 2 == 0)
+            for (int j = 0; j < 2; j++)
             {
-                if (builtFaceCount >= numOfFaces / 2)
-                    trianglePoints[i] = 1; //bottom
-                else
-                    trianglePoints[i] = 0; //top
-            }
-            else
-            {
-                //top
-                if (builtFaceCount < numOfFaces / 2)
+                if (j + 1 % 2 == 0)
                 {
-                    //skip the top and bottom points
-                    trianglePoints[i] = (i - (3 * builtFaceCount)) + 2 - triangleCenterPointCounter;
-                    triangleCenterPointCounter++;
+                    if (builtFaceCount >= numOfFaces / 2)
+                        trianglePoints[i + 1 + builtFaceCount] = 1; //bottom
+                    else
+                        trianglePoints[i + 1 + builtFaceCount] = 0; //top
                 }
-                else //bottom
+                else //TODO Finish this part, it wont work yet!
                 {
-                    if (builtFaceCount == numOfFaces / 2)
+                    //top
+                    if (builtFaceCount < numOfFaces / 2)
                     {
-                        trianglePoints[i] = (i - (3 * builtFaceCount)) + 2 - triangleCenterPointCounter - numOfFaces;
+                        //skip the top and bottom points
+                        trianglePoints[i + builtFaceCount] = trianglePoints[i + builtFaceCount + 1] = i + 2 - triangleCenterPointCounter;
                         triangleCenterPointCounter++;
+                    }
+                    else //bottom
+                    {
+                        if (builtFaceCount == numOfFaces / 2)
+                        {
+                            trianglePoints[i] = i + 2 - triangleCenterPointCounter - numOfFaces;
+                            triangleCenterPointCounter++;
+                        }
                     }
                 }
             }
-
-            if ((triangleCenterPointCounter + 1) % 3 == 0)
-            {
-                builtFaceCount++;
-                triangleCenterPointCounter = 0;
-            }
+            
+            builtFaceCount++;
+            triangleCenterPointCounter = 0;
         }
     }
 
