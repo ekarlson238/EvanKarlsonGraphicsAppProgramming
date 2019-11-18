@@ -27,8 +27,8 @@ public class ProcMesh : MonoBehaviour
 
     private void Update()
     {
-        //MakeMeshData2();
-        UpdateDynamicProcMeshIfFaceChange();
+        MakeMeshData2();
+        //UpdateDynamicProcMeshIfFaceChange();
         CreateMesh();
     }
 
