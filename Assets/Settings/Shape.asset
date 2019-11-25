@@ -19,12 +19,12 @@ MonoBehaviour:
     noiseSettings:
       filterType: 0
       simpleNoiseSettings:
-        strength: 0.09
+        strength: 0.07
         numLayers: 4
-        baseRoughness: 1.01
+        baseRoughness: 1.04
         roughness: 2.23
-        persistence: 0.51
-        centre: {x: 1.15, y: 0.92, z: -0.39}
+        persistence: 0.53
+        centre: {x: 1.77, y: 0.92, z: -0.39}
         minValue: 0.98
       ridgidNoiseSettings:
         strength: 1
