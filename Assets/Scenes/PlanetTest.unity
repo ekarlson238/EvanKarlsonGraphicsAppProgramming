@@ -704,17 +704,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 694420788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13643556dc6a2324688b8fbe34650840, type: 3}
+  m_Script: {fileID: 11500000, guid: 032cda3cb5aa847b0a635bd4b95e2e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolution: 94
-  meshFilters:
-  - {fileID: 406163977}
-  - {fileID: 1097225775}
-  - {fileID: 1540972724}
-  - {fileID: 425255572}
-  - {fileID: 842790939}
-  - {fileID: 2009936114}
+  resolution: 10
+  autoUpdate: 1
+  faceRenderMask: 0
+  shapeSettings: {fileID: 0}
+  colourSettings: {fileID: 0}
+  shapeSettingsFoldout: 0
+  colourSettingsFoldout: 0
+  meshFilters: []
 --- !u!4 &694420790
 Transform:
   m_ObjectHideFlags: 0
