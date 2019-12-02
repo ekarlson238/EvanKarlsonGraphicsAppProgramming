@@ -24,9 +24,13 @@ public class Planet : MonoBehaviour {
     [SerializeField, HideInInspector]
     MeshFilter[] meshFilters;
     TerrainFace[] terrainFaces;
-     
 
-	void Initialize()
+    private void Start()
+    {
+        GeneratePlanet();
+    }
+
+    void Initialize()
     {
         shapeGenerator.UpdateSettings(shapeSettings);
         colourGenerator.UpdateSettings(colourSettings);
